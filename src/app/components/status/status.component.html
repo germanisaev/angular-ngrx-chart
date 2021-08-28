@@ -1,0 +1,21 @@
+<div class="row">
+    <div class="col-md-4">
+        <h1>Status Works!</h1>
+        <hr>
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Current State</h5>
+                <ul>
+                    <li><strong>isAuthenticated</strong> - {{isAuthenticated}}</li>
+                    <li><strong>user.username</strong> - {{ user?.username || 'null'}}</li>
+                    <li><strong>user.token</strong> - {{ user?.token || 'null'}}</li>
+                    <li><strong>errorMessage</strong> - {{ errorMessage || 'null'}}</li>
+                </ul>
+            </div>
+        </div>
+        <a (click)="remove(user.username)" class="btn btn-primary">Remove</a>
+        <a (click)="goHome()" class="btn btn-primary">Home</a>
+    </div>
+</div>
+
+<!-- [routerLink]="['/']" -->
