@@ -9,7 +9,7 @@ import { environment } from '../../environments/environment';
 })
 export class AuthService {
 
-  private BASE_URL = environment.webApi; // https://localhost:44354/api/users/authenticate  'http://localhost:1337';
+  private BASE_URL = environment.webApi;
 
   httpOptions = {
     headers: new HttpHeaders({
@@ -19,8 +19,8 @@ export class AuthService {
 
   constructor(private http: HttpClient) { }
 
-  private getElementUrl(elementId: any) {
-    return this.BASE_URL + '/' + encodeURIComponent(String(elementId));
+  private getElementUrl(param: any) {
+    return this.BASE_URL + '/' + encodeURIComponent(String(param));
   }
 
   getToken(): string {
@@ -40,9 +40,5 @@ export class AuthService {
   removeUser(username: string) {
     return this.http.delete(this.getElementUrl(username), this.httpOptions);
   }
-
-  /* getStatus(): Observable<User> {
-    const url = `${this.BASE_URL}/status`;
-    return this.http.get<User>(url);
-  } */
+  
 }
