@@ -32,24 +32,11 @@ export class ErrorInterceptor implements HttpInterceptor {
           localStorage.removeItem('token');
           this.router.navigateByUrl('/log-in');
         }
-        //return throwError(response);
+        
         const error = response.error?.message || response.statusText;
         console.error(response);
         return throwError(error);
-        //return this.onError(response);
       }));
   }
 
-  /* intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    return next.handle(request).pipe(catchError(err => {
-        if ([401, 403].includes(err.status) && this.accountService.userValue) {
-            // auto logout if 401 or 403 response returned from api
-            this.accountService.logout();
-        }
-
-        const error = err.error?.message || err.statusText;
-        console.error(err);
-        return throwError(error);
-    })) 
-}*/
 }
